@@ -17,6 +17,10 @@ public class Bank {
                     case 1: //存款
                         System.out.print("请输入存款金额（大于0整数）：");
                         long deposit = sc.nextLong();
+                        while (deposit<0){
+                            System.out.print("存款金额不能小于0，请重新输入：");
+                            deposit = sc.nextLong();
+                        }
                         balance = balance + deposit;
                         System.out.println("存款成功，当前余额为 "+ balance + " 元\n");
                         break;
@@ -24,9 +28,22 @@ public class Bank {
                     case 2: //取款
                         System.out.print("请输入取款金额（大于0整数）：");
                         long withdraw = sc.nextLong();
+
                         while (withdraw > balance){
                             System.out.print("余额不足，当前余额为 " +balance+ " 元，请重新输入：");
                             withdraw = sc.nextLong();
+                            while (withdraw<0){
+                                System.out.print("取款金额不能小于0，请重新输入：");
+                                withdraw = sc.nextLong();
+                            }
+                        }
+                        while (withdraw<0){
+                            System.out.print("取款金额不能小于0，请重新输入：");
+                            withdraw = sc.nextLong();
+                            while (withdraw > balance) {
+                                System.out.print("余额不足，当前余额为 " + balance + " 元，请重新输入：");
+                                withdraw = sc.nextLong();
+                            }
                         }
                             balance = balance - withdraw;
                             System.out.println("取款成功，当前余额为 "+ balance + " 元\n" );
