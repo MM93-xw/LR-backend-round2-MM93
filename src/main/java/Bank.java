@@ -29,21 +29,9 @@ public class Bank {
                         System.out.print("请输入取款金额（大于0整数）：");
                         long withdraw = sc.nextLong();
 
-                        while (withdraw > balance){
-                            System.out.print("余额不足，当前余额为 " +balance+ " 元，请重新输入：");
+                        while (withdraw<0 || withdraw > balance){
+                            System.out.print("当前金额为 " + balance +" 元，取款金额不能为负且要小于存款，请重新输入：");
                             withdraw = sc.nextLong();
-                            while (withdraw<0){
-                                System.out.print("取款金额不能小于0，请重新输入：");
-                                withdraw = sc.nextLong();
-                            }
-                        }
-                        while (withdraw<0){
-                            System.out.print("取款金额不能小于0，请重新输入：");
-                            withdraw = sc.nextLong();
-                            while (withdraw > balance) {
-                                System.out.print("余额不足，当前余额为 " + balance + " 元，请重新输入：");
-                                withdraw = sc.nextLong();
-                            }
                         }
                             balance = balance - withdraw;
                             System.out.println("取款成功，当前余额为 "+ balance + " 元\n" );
@@ -65,6 +53,8 @@ public class Bank {
         }
     }
 
+//程序框架
+
 //主函数/类
 //   命名输入器，原始变量为0
 //   欢迎提示
@@ -76,5 +66,23 @@ public class Bank {
 //               3 输出语句
 //               4 关闭输入器，结束进程
 //               default
-//
-//
+
+
+//双while嵌套
+
+//while (withdraw > balance){
+//        System.out.print("余额不足，当前余额为 " +balance+ " 元，请重新输入：");
+//withdraw = sc.nextLong();
+//                            while (withdraw<0){
+//        System.out.print("取款金额不能小于0，请重新输入：");
+//withdraw = sc.nextLong();
+//                            }
+//                                    }
+//                                    while (withdraw<0){
+//        System.out.print("取款金额不能小于0，请重新输入：");
+//withdraw = sc.nextLong();
+//                            while (withdraw > balance) {
+//        System.out.print("余额不足，当前余额为 " + balance + " 元，请重新输入：");
+//withdraw = sc.nextLong();
+//                            }
+//                                }
